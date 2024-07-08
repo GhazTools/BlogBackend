@@ -1,0 +1,23 @@
+{
+    "name": "blog_backend",
+    "version": "1.0.0",
+    "description": "A backend to serve my blog ",
+    "main": "src/app.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node src/app.js",
+        "format": "prettier --write .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/express": "^4.17.21",
+        "@types/node": "^20.14.10",
+        "prettier": "^3.3.2",
+        "typescript": "^5.5.3"
+    },
+    "dependencies": {
+        "express": "^4.19.2"
+    }
+}
