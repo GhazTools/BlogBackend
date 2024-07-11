@@ -1,0 +1,10 @@
+{
+    "exec": "ts-node ./src/app.ts",
+    "watch": ["src/**/*.ts"],
+    "ext": "ts",
+    "ignore": ["src/public/*"],
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "delay": "2500"
+}
