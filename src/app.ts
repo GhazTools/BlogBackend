@@ -1,7 +1,10 @@
 import express, { Express, Request, Response } from "express";
 import axios from "axios";
+import cors from "cors";
 
 const app: Express = express();
+app.use(cors());
+
 const PORT = 3000;
 
 app.get("/", (req: Request, res: Response) => {
