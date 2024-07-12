@@ -1,6 +1,7 @@
-import express, { Express, Request, Response } from "express";
 import axios from "axios";
 import cors from "cors";
+import express, { Express, Request, Response } from "express";
+import fs from "fs";
 
 const app: Express = express();
 app.use(cors());
@@ -32,6 +33,27 @@ app.get("/images/:imageName", async (req: Request, res: Response) => {
     }
 });
 
+function cleanupSocketFile(socketPath: string) {
+    if (fs.existsSync(socketPath)) {
+        fs.unlinkSync(socketPath);
+    }
+}
+
+cleanupSocketFile(socketPath)
 app.listen(socketPath, () => {
     console.log(`Server is running`);
+});
+
+
+// Graceful shutdown
+process.on('SIGINT', () => {
+    console.log('Received SIGINT. Exiting...');
+    cleanupSocketFile(socketPath);
+    process.exit(0);
+});
+
+process.on('SIGTERM', () => {
+    console.log('Received SIGTERM. Exiting...');
+    cleanupSocketFile(socketPath);
+    process.exit(0);
 });
