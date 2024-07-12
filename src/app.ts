@@ -5,7 +5,7 @@ import cors from "cors";
 const app: Express = express();
 app.use(cors());
 
-const PORT = 3000;
+const socketPath= "/PATH_TO_SOCK.sock"
 
 app.get("/", (req: Request, res: Response) => {
     res.send("Service is up & running.");
@@ -32,6 +32,6 @@ app.get("/images/:imageName", async (req: Request, res: Response) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
+app.listen(socketPath, () => {
+    console.log(`Server is running`);
 });
